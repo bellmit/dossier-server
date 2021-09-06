@@ -1,5 +1,6 @@
 package com.thunisoft.dzjz.app.example;
 
+import com.sun.media.sound.SoftTuning;
 import com.thunisoft.dzjz.DossierApplication;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -13,6 +14,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * 作者: guo yao
@@ -184,6 +186,18 @@ public class RedisCacheExample {
         System.err.println(stringOps.get());  // abc
         stringOps.append("-dfg");
         System.err.println(stringOps.get());  // abc-dfg
+    }
+
+    // 计数器实现
+    @Test
+    public void testIncrement() {
+        String stringKey = "index";
+        Long count = redisTemplate.opsForValue().increment(stringKey,2);
+        System.out.println("===" + count);
+//        AtomicInteger atomicInteger = new AtomicInteger();
+//        atomicInteger.decrementAndGet()
+        Long count2 = redisTemplate.opsForValue().decrement(stringKey,1);
+        System.out.println("===" + count2);
     }
 
     // hash表操作 和Map差不多
