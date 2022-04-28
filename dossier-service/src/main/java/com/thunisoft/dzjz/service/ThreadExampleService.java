@@ -1,6 +1,5 @@
 package com.thunisoft.dzjz.service;
 
-import com.google.common.collect.Lists;
 import com.thunisoft.dzjz.config.ThreadPoolConfig;
 import com.thunisoft.dzjz.dto.QueryResult;
 import com.thunisoft.dzjz.task.CreateTask;
